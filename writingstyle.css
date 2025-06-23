@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&family=Viaoda+Libre&display=swap');
+
 html, body {
   margin: 0;
   padding: 0;
@@ -7,46 +9,43 @@ html, body {
 
 .Writing {
   width: 100%;
-  height: 100vh;
+  height: auto;
   position: relative;
   background: #0A0807;
-  overflow: hidden;
 }
 
-.Fc8852f1e9K {
-  width: 100%;
-  height: 83.98%;
+.bg {
+  width:100%;
   left: 0%;
-  top: 16.02%;
+  top: 5%;
   position: absolute;
   opacity: 0.63;
+  object-fit: cover;
 }
 
 .Rectangle8 {
   width: 75.14%;
-  height: 56.54%;
-  left: 11.88%;
-  top: 36.72%;
-  position: absolute;
+  height: auto;
+  margin-left: 11.88%;
+  margin-top: 36.72%;
+  position: relative;
   background: black;
-  border: 0.21% solid #9A735E;
+  border: 4px solid #9A735E;
 }
 
 .Rectangle10 {
-  width: 37.01%;
-  height: 16.89%;
-  left: 31.46%;
-  top: 17.77%;
-  position: absolute;
+  width: 95%;
+  height: auto;
+  margin-left: 0.5%;
+  margin-top: 0.5%;
+  position: relative;
   background: black;
-  border: 0.28% solid #9A735E;
+  border: 4px solid #9A735E;
 }
 
 .Title {
   width: 32.78%;
-  left: 33.21%;
-  top: 21.48%;
-  position: absolute;
+  padding: 10px;
   text-align: center;
   color: black;
   font-size: 6.64vw; /* 96px at 1440px */
@@ -54,98 +53,83 @@ html, body {
   font-weight: 400;
   text-transform: uppercase;
   line-height: 6.64vw;
-  text-shadow: 0 0.28% 0.28% rgba(0, 0, 0, 0.25);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .Rectangle11 {
   width: 35.28%;
-  height: 14.55%;
-  left: 32.36%;
-  top: 18.85%;
-  position: absolute;
+  height: auto;
+  position: relative;
   opacity: 0.50;
-  border: 0.28% solid #9A735E;
+  border: 4px solid #9A735E;
 }
 
 .Rectangle10B {
-  width: 71.25%;
-  height: 15.04%;
-  left: 13.96%;
-  top: 39.55%;
-  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-left: 30%;
+  position: relative;
   opacity: 0.50;
   border: 0.21% solid #9A735E;
 }
 
 .Rectangle12 {
   width: 19.86%;
-  height: 34.08%;
-  left: 13.89%;
-  top: 56.25%;
-  position: absolute;
-  opacity: 0.50;
-  border: 0.21% solid #9A735E;
+  height: auto;
+  margin-top: 25px;
+  margin-left: 2.5%;
+  position: relative;
+  border: 2px solid #9a735e74;
 }
 
-.RecentAwardsPoetryAwardsHopwoodSWeisbergAward2ndPlaceCaldwellWritten1stPlaceCaldwellPerformance4thPlaceRogerMJonesHonorableMentionAdvancingClimateEducation3rdPlaceScienceAsArtHonorableMentionFictionAwardsCooleyFictionWritingAwards {
+.RecentAwards {
   width: 69.72%;
   height: 13.48%;
-  left: 14.72%;
+  left: 10px;
   top: 41.11%;
-  position: absolute;
-  /* Keep text styles as inline styles or move to CSS if desired */
+  padding: 10px;
+  position: relative;
 }
 
 .Rectangle9 {
-  width: 74.17%;
-  height: 55.18%;
-  left: 12.36%;
-  top: 37.40%;
-  position: absolute;
+  width: 98.5%;
+  height: auto;
+  margin:0.01%;
+  left: 0.5%;
+  top: 1%;
+  position: relative;
   opacity: 0.50;
-  border: 0.21% solid #9A735E;
+  border: 4px solid #9A735E;
 }
 
 .TheSoftMonsters {
-  width: 17.85%;
-  height: 28.91%;
-  left: 14.79%;
-  top: 58.01%;
-  position: absolute;
+  position: relative;
+  padding:5px;
 }
 
 .Rectangle14 {
   width: 19.86%;
-  height: 34.08%;
-  left: 64.58%;
-  top: 55.86%;
-  position: absolute;
-  opacity: 0.50;
-  border: 0.21% solid #9A735E;
+  height: auto;
+  position: relative;
+  border: 2px solid #9a735e74;
 }
 
 .GnarledBranchesOfTheDeaconTree {
-  width: 17.85%;
-  height: 30.96%;
-  left: 65.49%;
-  top: 57.62%;
-  position: absolute;
+  position: relative;
+  padding: 5px;
 }
 
 .Rectangle13 {
   width: 28.40%;
-  height: 34.08%;
-  left: 34.93%;
-  top: 56.25%;
-  position: absolute;
-  opacity: 0.50;
-  border: 0.21% solid #9A735E;
+  height: auto;
+  left: 20%;
+  top: 20%;
+  position: relative;
+  border: 2px solid #9a735e74;
 }
 
 .SanctuaryAPoem {
-  width: 26.67%;
-  height: 32.42%;
-  left: 35.90%;
-  top: 57.52%;
-  position: absolute;
+  position: relative;
+  padding: 5px;
 }
