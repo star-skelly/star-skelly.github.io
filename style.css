@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&family=Viaoda+Libre&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.Homepage {
+    width: 100%;
+    height: 3072px;
+    position: absolute;
+    top: 126px;
+    background: #0A0807;
+    overflow: hidden;
+}
+.SoftStarsJpg { 
+    width: 62.92%; 
+    height: 27.41%; 
+    left: 37.08%; 
+    top: 2%; 
+    position: absolute; 
+    opacity: 0.63; 
+}
+.OceanStarsJpg { 
+    width: 100%; height: 33.33%; left: 0%; top: 66.67%; position: absolute; opacity: 0.63; 
+}
+.ProfileBox2 { 
+    width: 23.06%; height: 10.74%; left: 7.22%; top: 2%; position: absolute; border: 4px #9A735E solid; 
+}
+.ProfileBox { 
+    width: 21.88%; height: 10.19%; left: 7.78%; top: 2.27%; position: absolute; opacity: 0.50; border: 4px #9A735E solid; 
+}
+.Corner { position: absolute; opacity: 0.50; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px rgba(0, 0, 0, 0) solid; }
+.Corner1 { width: 5.21%; height: 2.41%; left: 8.26%; top: 2.49%; }
+.Corner2 { width: 5.12%; height: 2.43%; left: 8.26%; top: 12.3%; transform: rotate(-90deg); transform-origin: top left; }
+.Corner3 { width: 5.18%; height: 2.40%; left: 29.5%; top: 12.3%; transform: rotate(-180deg); transform-origin: top left; }
+.Corner4 { width: 5.12%; height: 2.43%; left: 29.5%; top: 2.49%; transform: rotate(90deg); transform-origin: top left; }
+.Dsc1868Square { width: 19.58%; height: 9.11%; left: 8.96%; top: 2.82%; position: absolute; border-radius: 9999px; outline: 4px #9A735E solid; background: rgba(255, 255, 255, 0); }
+.Img6544 { width: 18.40%; height: 8.63%; left: 9.58%; top: 3.05%; position: absolute; border-radius: 9999px; outline: 4px #9A735E solid; }
+.PeruseBox2 { width: 90.56%; height: 5.27%; left: 5.14%; top: 91.41%; position: absolute; border: 4px #9A735E solid; background: black; }
+.PeruseBox { width: 88.96%; height: 4.56%; left: 5.97%; top: 91.76%; position: absolute; opacity: 0.50; border: 4px #9A735E solid; background: rgba(217, 217, 217, 0); }
+.Title { 
+    width: 60.69%; 
+    left: 3.96%; 
+    top: 14.36%; 
+    position: absolute; 
+    color: black; 
+    text-shadow: -1px -1px 0 #9A735E, 1px -1px 0 #9A735E, -1px 1px 0 #9A735E, 1px 1px 0 #9A735E;
+    font-size: 118px; 
+    font-family: Viaoda Libre; 
+    text-transform: uppercase; line-height: 118px; }
+.CurvedCorners { width: 90.56%; height: 19.21%; left: 5.14%; top: 69.75%; position: absolute; background: black; border: 4px #9A735E solid; }
+.BioBox2 { width: 59.03%; height: 10.81%; left: 33.33%; top: 75.08%; position: absolute; border: 3px #9A735E solid; }
+.BioBox { width: 57.85%; height: 10.35%; left: 33.82%; top: 75.26%; position: absolute; opacity: 0.50; border: 3px #9A735E solid; }
+.SalemLoucks { left: 34.44%; top: 71.29%; position: absolute; color: black; font-size: 64px; font-family: Viaoda Libre; line-height: 64px;     text-shadow: -1px -1px 0 #9A735E, 1px -1px 0 #9A735E, -1px 1px 0 #9A735E, 1px 1px 0 #9A735E;}
+.Peruse { left: 10.49%; top: 92.98%; position: absolute; color: black; font-size: 64px; font-family: Viaoda Libre; line-height: 64px;     text-shadow: -1px -1px 0 #9A735E, 1px -1px 0 #9A735E, -1px 1px 0 #9A735E, 1px 1px 0 #9A735E;
+}
+.BioText { width: 54.86%; height: 5.31%; left: 35.21%; top: 75.89%; position: absolute; color: #9A735E; font-size: 22px; font-family: IM FELL French Canon; line-height: 22px; }
+.Resume, .Github, .Programming, .Art, .Writing, .Email, .Linkedin {
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: #9A735E;
+    font-size: 36px;
+    font-family: IM FELL French Canon SC;
+    line-height: 46.80px;
+}
+.Resume { width: 11.74%; left: 67.57%; top: 72.14%; }
+.Github { width: 11.74%; left: 78.33%; top: 72.14%; }
+.Programming { width: 18.75%; left: 36.94%; top: 92.66%; }
+.Art { width: 7.50%; left: 59.65%; top: 92.66%; }
+.Writing { width: 13.54%; left: 72.5%; top: 92.66%; }
+.Email { width: 8.96%; left: 10.49%; top: 72.14%; }
+.Linkedin { width: 15.00%; left: 17.57%; top: 72.14%; }
