@@ -1,135 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&family=Viaoda+Libre&display=swap');
 
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
+  background: #0A0807;
+  color: #9A735E;
+  font-family: "IM Fell French Canon", serif;
+  min-height: 100%;
 }
 
 .Writing {
-  width: 100%;
-  height: auto;
-  position: relative;
-  background: #0A0807;
-}
-
-.bg {
-  width:100%;
-  left: 0%;
-  top: 5%;
-  position: absolute;
-  opacity: 0.63;
-  object-fit: cover;
-}
-
-.Rectangle8 {
-  width: 75.14%;
-  height: auto;
-  margin-left: 11.88%;
-  margin-top: 36.72%;
-  position: relative;
-  background: black;
-  border: 4px solid #9A735E;
-}
-
-.Rectangle10 {
-  width: 95%;
-  height: auto;
-  margin-left: 0.5%;
-  margin-top: 0.5%;
-  position: relative;
-  background: black;
-  border: 4px solid #9A735E;
+  background: url('pics/ocean_stars.jpg') center/cover no-repeat;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
 .Title {
-  width: 32.78%;
-  padding: 10px;
+  font-family: "Viaoda Libre", serif;
+  font-size: 6.64vw;
   text-align: center;
-  color: black;
-  font-size: 6.64vw; /* 96px at 1440px */
-  font-family: "Viaoda Libre";
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 6.64vw;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  color: #9A735E;
+
+  border: 3px solid #9a735e7c;    /* border color */
+  padding: 0.5rem 1.5rem;       /* spacing around the text */
+  display: inline-block;        /* shrink box to fit title */
 }
 
-.Rectangle11 {
-  width: 35.28%;
-  height: auto;
-  position: relative;
-  opacity: 0.50;
-  border: 4px solid #9A735E;
+.Outerbox {
+  border: 3px solid #9A735E;
+  padding: 0.5rem 0.5rem;
+  display: inline-block;
+  justify-content: center;
+  background: rgba(0, 0, 0);
+  margin-bottom: 2rem; /* spacing below title */
 }
 
-.Rectangle10B {
-  width: auto;
-  height: auto;
-  padding: 10px;
-  margin-left: 30%;
-  position: relative;
-  opacity: 0.50;
-  border: 0.21% solid #9A735E;
+.TitleWrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem; /* spacing below title */
 }
 
-.Rectangle12 {
-  width: 19.86%;
-  height: auto;
-  margin-top: 25px;
-  margin-left: 2.5%;
-  position: relative;
-  border: 2px solid #9a735e74;
+.Awards {
+  border: 3px solid #9a735e7f;
+  padding: 0.5rem 0.5rem;
+  width: 98%;
+  display: inline-block;
+  justify-content: center;
+  background: rgba(0, 0, 0);
 }
 
-.RecentAwards {
-  width: 69.72%;
-  height: 13.48%;
-  left: 10px;
-  top: 41.11%;
-  padding: 10px;
-  position: relative;
+.OuterSection {
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  background: rgba(0, 0, 0);
+  border: 3px solid #9A735E;
 }
 
-.Rectangle9 {
-  width: 98.5%;
-  height: auto;
-  margin:0.01%;
-  left: 0.5%;
-  top: 1%;
-  position: relative;
-  opacity: 0.50;
-  border: 4px solid #9A735E;
+.SectionWrapper {
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.TheSoftMonsters {
-  position: relative;
-  padding:5px;
+.WritingSections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
-.Rectangle14 {
-  width: 19.86%;
-  height: auto;
-  position: relative;
-  border: 2px solid #9a735e74;
+.Section {
+  background: rgba(0,0,0,0.9);
+  border: 3px solid #9a735e7f;
+  padding: 1%;
+  width: 32%;
+  box-sizing: border-box;
 }
 
-.GnarledBranchesOfTheDeaconTree {
-  position: relative;
-  padding: 5px;
+.Section h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  color: #9A735E;
 }
 
-.Rectangle13 {
-  width: 28.40%;
-  height: auto;
-  left: 20%;
-  top: 20%;
-  position: relative;
-  border: 2px solid #9a735e74;
-}
-
-.SanctuaryAPoem {
-  position: relative;
-  padding: 5px;
+.Section p {
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
