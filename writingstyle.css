@@ -5,13 +5,14 @@ html, body {
   padding: 0;
   background: #0A0807;
   color: #9A735E;
-  font-family: "IM Fell French Canon", serif;
+  font-family: "IM Fell French Canon SC", serif;
   min-height: 100%;
 }
 
 .Writing {
   background: url('pics/ocean_stars.jpg') center/cover no-repeat;
   padding: 2rem;
+  margin-top: 40px;
   min-height: 100vh;
 }
 
@@ -91,4 +92,33 @@ html, body {
 .Section p {
   font-size: 0.9rem;
   line-height: 1.4;
+}
+
+
+.Programminglink, .Artlink, .Writinglink, .MyProfile {
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: #9A735E;
+    font-size: 36px;
+    font-family: "IM FELL French Canon SC", serif;
+    line-height: 46.80px;
+}
+
+.Programminglink { width: 18.75%; left: 36.94%; top: 92.66%; }
+.Artlink { width: 7.50%; left: 59.65%; top: 92.66%; }
+.Writinglink { width: 13.54%; left: 72.5%; top: 92.66%; }
+
+.barlink { 
+  width: 60.69%; 
+  left: 3.96%; 
+  top: 14.36%; 
+  position: absolute; 
+  color: black; 
+  text-shadow: -1px -1px 0 #9A735E, 1px -1px 0 #9A735E, -1px 1px 0 #9A735E, 1px 1px 0 #9A735E;
+  font-size: 118px; 
+  font-family: Viaoda Libre; 
+  text-transform: uppercase; line-height: 118px; 
 }
