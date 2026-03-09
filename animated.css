@@ -6,9 +6,33 @@ body, html {
     color: white; /* Default font color */
 }
 
+.top-center-avatar {
+    position: fixed; /* Keeps it pinned to the screen */
+    top: 20px;       /* Distance from the top edge */
+    left: 50%;       /* Move to horizontal center */
+    transform: translateX(-50%); /* Offset by half its width to truly center */
+    z-index: 200;    /* Higher than the video (100) and logos (50) */
+    
+    width: 80px;     /* Adjust size as needed */
+    height: 80px;
+    border-radius: 50%; /* Makes it circular */
+    overflow: hidden;   /* Clips the image into the circle */
+    border: 4px solid white; /* Optional: adds a nice "frame" */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    
+    /* Ensure it doesn't block clicks to things behind it if necessary */
+    pointer-events: none; 
+}
+
+.top-center-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents the image from stretching */
+}
+
 /* --- The Video Overlay (Same as before) --- */
 #intro-overlay {
-    position: fixed; top: 0; left: 0;
+    position: fixed; top: 50px; left: 0;
     width: 100%; height: 100%;
     z-index: 100; /* Stays on top */
     transition: opacity 0.2s ease-out;
@@ -32,7 +56,7 @@ video {
 
 /* This centers a single imaginary point in the exact middle of the screen */
 .interactive-logo-grid {
-    position: absolute;
+    position: absolute; top: 50px;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%); /* The 'True Center' */
     width: 80%; /* Creates a container bounds */
@@ -60,19 +84,20 @@ video {
 }
 /* Move logos to corners when the .navigating class is added */
 .navigating .code-pos { top: -20%; left: -10%; transform: scale(0.6); }
-.navigating .random-pos { top: -20%; left: 40%; transform: scale(0.6); }
+.navigating .random-pos { top: 80%; left: 40%; transform: scale(0.6); }
 .navigating .space-pos { top: -20%; left: 90%; transform: scale(0.6); }
 .navigating .writing-pos { top: 80%; left: -10%; transform: scale(0.6); }
 .navigating .art-pos { top: 80%; left: 90%; transform: scale(0.6); }
 
 .interactive-logo:hover{
-    transform: rotate(2deg) scale(0.1);
+    transform: rotate(2deg) scale(0.8);
     opacity: 0.8;
 }
 
 /* The logo that was actually clicked stays prominent or fades out */
 .navigating .clicked {
-    transform: scale(1.5);
+    transform: scale(0.6);
+    opacity: 0.2;
 }
 
 .interactive-logo img {
@@ -96,4 +121,39 @@ video {
 .no-navigation:hover {
     transform: rotate(-5deg) scale(1.1); /* Slight grow */
     opacity: 0.8;
+}
+
+/* This code only runs on screens narrower than 768px (Phones/Tablets) */
+@media (max-width: 768px) {
+    
+    #main-content {
+        /* On phones, 'contain' is safer so the art isn't cropped */
+        background-size: contain; 
+    }
+
+    .interactive-logo-grid {
+        width: 95%; /* Give it more room on small screens */
+    }
+
+    /* Adjust positions for a vertical layout */
+    .code-pos { top: 15%; left: 5%; }
+    .space-pos { top: 15%; left: auto; right: 5%; }
+    
+    .random-pos { top: 5%; left: 50%; }
+
+    .writing-pos { bottom: 15%; left: 5%; }
+    .art-pos { bottom: 15%; left: auto; right: 5%; }
+
+    /* Make the icons and text a bit bigger for fingers to tap */
+    .interactive-logo img {
+        height: 12vw; 
+    }
+    .interactive-logo span {
+        font-size: 4vw;
+    }
+    .top-center-avatar {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+    }
 }

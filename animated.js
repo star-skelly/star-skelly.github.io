@@ -21,7 +21,7 @@ links.forEach(link => {
         const destination = this.href;
 
         content.classList.add('navigating');
-        content.classList.remove('no-navigation');
+        links.forEach(l => l.classList.remove('no-navigation'));
 
         // need to have this zoom out overrule the hover thingy
         
