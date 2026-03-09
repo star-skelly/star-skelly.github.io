@@ -1,39 +1,99 @@
-/* Ensure the page takes up the full screen */
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000; /* Match your video background */
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    background-color: #000;
+    overflow: hidden; /* Lock scroll during video */
+    color: white; /* Default font color */
 }
 
-/* Full-screen video container */
+/* --- The Video Overlay (Same as before) --- */
 #intro-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999; /* Stay on top of everything */
-    transition: opacity 0.8s ease-out; /* The fade speed */
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 100; /* Stays on top */
+    transition: opacity 0.2s ease-out;
 }
-
 video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Keeps video full screen without stretching */
+    width: 100%; height: 100%;
+    object-fit: contain;
 }
 
-/* Hidden state for logos */
-.hidden {
-    opacity: 0;
-    pointer-events: none; /* Can't click them while hidden */
-}
-
+/* --- The Interactive Main Content --- */
 #main-content {
-    transition: opacity 1s ease-in;
+    position: relative;
+    width: 100%; height: 100vh;
+    background-image: url('/salem_sky_pics/Salems_Sky.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* --- The Logo Structure --- */
+
+/* This centers a single imaginary point in the exact middle of the screen */
+.interactive-logo-grid {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%); /* The 'True Center' */
+    width: 80%; /* Creates a container bounds */
+    height: 80vh;
+}
+
+/* General styling for each cluster link */
+.interactive-logo {
+    position: absolute;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Icon over Text */
     align-items: center;
-    height: 100vh;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-family: serif; /* Change this to match your handwriting font */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* The glow effect */
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+}
+
+/* When we start navigating, hide the center text/nebula */
+#main-content.navigating {
+    background-image: none;
+}
+/* Move logos to corners when the .navigating class is added */
+.navigating .code-pos { top: -20%; left: -10%; transform: scale(0.6); }
+.navigating .random-pos { top: -20%; left: 40%; transform: scale(0.6); }
+.navigating .space-pos { top: -20%; left: 90%; transform: scale(0.6); }
+.navigating .writing-pos { top: 80%; left: -10%; transform: scale(0.6); }
+.navigating .art-pos { top: 80%; left: 90%; transform: scale(0.6); }
+
+.interactive-logo:hover{
+    transform: rotate(2deg) scale(0.1);
+    opacity: 0.8;
+}
+
+/* The logo that was actually clicked stays prominent or fades out */
+.navigating .clicked {
+    transform: scale(1.5);
+}
+
+.interactive-logo img {
+    height: 220px;
+    margin-bottom: 1px;
+}
+
+.interactive-logo span {
+    font-size: 1.2rem;
+}
+
+
+.code-pos { top: 10%; left: 10%; transform: rotate(2deg);} /* Far top left */
+.random-pos { top: 0%; left: 40%; transform: rotate(2deg); } /* Center top */
+.space-pos { top: 10%; left: 70%; transform: rotate(2deg); } /* Far top right */
+
+/* Bottom Row */
+.writing-pos { top: 55%; left: 20%; transform: rotate(2deg);} /* Left bottom */
+.art-pos { top: 55%; left: 60%; transform: rotate(2deg); } /* Right bottom */
+
+.no-navigation:hover {
+    transform: rotate(-5deg) scale(1.1); /* Slight grow */
+    opacity: 0.8;
 }
