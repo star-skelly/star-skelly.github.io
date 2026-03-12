@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salem's Sky</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Luxurious+Roman" rel="stylesheet">
     <link rel="stylesheet" href="animated.css">
 </head>
 <body>
@@ -35,6 +38,21 @@
                 <img src="salem_sky_pics/Art.png" alt="Art"></a>
         </div>
     </main>
+    <div id="project-modal" class="modal-hidden">
+        <div class="modal-content">
+            <button id="close-modal">✕</button>
+            <h2 id="modal-title">Category Name</h2>
+            
+            <div class="projects-scroller" id="projects-container">
+                </div>
+        </div>
+    </div>
+    
+    <div id="lightbox" class="modal-hidden">
+        <span id="close-lightbox">✕</span>
+        <img id="lightbox-img" src="" alt="Full view">
+    
+    </div>
     <script src="animated.js"></script>
 </body>
 </html>

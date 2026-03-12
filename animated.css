@@ -7,17 +7,17 @@ body, html {
 }
 
 .top-center-avatar {
-    position: fixed; /* Keeps it pinned to the screen */
-    top: 20px;       /* Distance from the top edge */
-    left: 50%;       /* Move to horizontal center */
-    transform: translateX(-50%); /* Offset by half its width to truly center */
-    z-index: 200;    /* Higher than the video (100) and logos (50) */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
     
-    width: 80px;     /* Adjust size as needed */
+    width: 80px;
     height: 80px;
-    border-radius: 50%; /* Makes it circular */
-    overflow: hidden;   /* Clips the image into the circle */
-    border: 4px solid white; /* Optional: adds a nice "frame" */
+    border-radius: 50%;
+    overflow: hidden;  
+    border: 4px solid white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     
     /* Ensure it doesn't block clicks to things behind it if necessary */
@@ -32,7 +32,7 @@ body, html {
 
 /* --- The Video Overlay (Same as before) --- */
 #intro-overlay {
-    position: fixed; top: 50px; left: 0;
+    position: fixed; top: 8vh; left: 0;
     width: 100%; height: 100%;
     z-index: 100; /* Stays on top */
     transition: opacity 0.2s ease-out;
@@ -44,7 +44,7 @@ video {
 
 /* --- The Interactive Main Content --- */
 #main-content {
-    position: relative;
+    position: fixed; top: 8vh;
     width: 100%; height: 100vh;
     background-image: url('/salem_sky_pics/Salems_Sky.png');
     background-size: contain;
@@ -74,27 +74,21 @@ video {
     color: white;
     font-family: serif; /* Change this to match your handwriting font */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* The glow effect */
-    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 50;
 }
 
-/* When we start navigating, hide the center text/nebula */
-#main-content.navigating {
-    background-image: none;
-}
-/* Move logos to corners when the .navigating class is added */
 .navigating .code-pos { top: -20%; left: -10%; transform: scale(0.6); }
-.navigating .random-pos { top: 80%; left: 40%; transform: scale(0.6); }
+.navigating .random-pos { top: 70%; left: 40%; transform: scale(0.6); }
 .navigating .space-pos { top: -20%; left: 90%; transform: scale(0.6); }
-.navigating .writing-pos { top: 80%; left: -10%; transform: scale(0.6); }
-.navigating .art-pos { top: 80%; left: 90%; transform: scale(0.6); }
+.navigating .writing-pos { top: 70%; left: -10%; transform: scale(0.6); }
+.navigating .art-pos { top: 70%; left: 90%; transform: scale(0.6); }
 
 .interactive-logo:hover{
     transform: rotate(2deg) scale(0.8);
     opacity: 0.8;
 }
 
-/* The logo that was actually clicked stays prominent or fades out */
 .navigating .clicked {
     transform: scale(0.6);
     opacity: 0.2;
@@ -123,11 +117,155 @@ video {
     opacity: 0.8;
 }
 
+/* The Modal Backdrop */
+#project-modal {
+    position: fixed;
+    inset: 0; /* Shorthand for top/bottom/left/right: 0 */
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px); /* Blurs the nebula background */
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease;
+}
+
+#modal-title {
+    font-family: "Luxurious Roman", serif;
+    font-weight: 400;
+    font-size: 48px;
+    font-style: normal;
+}
+.modal-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The Box and Scroller */
+.modal-content {
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+}
+
+.projects-scroller {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* This enables the sideways scroll */
+    padding: 20px 0;
+    scroll-snap-type: x mandatory; /* Makes it "snap" to boxes */
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* Individual Project Box */
+.project-card {
+    min-width: 150px;
+    max-width: 250px;
+    background: #1a1a1a;
+    border: 4px solid #ffffff;
+    padding: 15px;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.project-card .image-container {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden; /* This crops the zoom so it doesn't spill out */
+    position: relative;
+    background: #000; /* Backdrop in case image takes a second to load */
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth zoom */
+    transform-origin: center; /* Zooms into the middle */
+}
+
+.project-card:hover img {
+    transform: scale(3.0) translateY(-10px);
+    filter: brightness(1.1); /* Optional: makes it pop a little when zoomed */
+}
+
+.image-container {
+    cursor: zoom-in;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.1s ease-out; 
+    pointer-events: none;
+}
+
+#close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000; /* Above everything else */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(25, 0, 130, 0.3); /* That blue glow again */
+}
+
+#close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+a {
+    color: rgb(53, 177, 255)
+}
+
+a:hover {
+    color: rgb(147, 214, 255)
+}
+
 /* This code only runs on screens narrower than 768px (Phones/Tablets) */
 @media (max-width: 768px) {
     
     #main-content {
-        /* On phones, 'contain' is safer so the art isn't cropped */
         background-size: contain; 
     }
 
