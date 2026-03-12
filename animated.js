@@ -23,15 +23,10 @@ links.forEach(link => {
         content.classList.add('navigating');
         links.forEach(l => l.classList.remove('no-navigation'));
 
-        // need to have this zoom out overrule the hover thingy
         
         // 3. Mark this specific link as 'clicked'
         this.classList.add('clicked');
 
-        // 4. Wait for the animation (0.7s) then change the page
-        //setTimeout(() => {
-            //window.location.href = destination;
-        //}, 700); 
     });
 });
 
@@ -49,8 +44,15 @@ const projectData = {
         { title: "Cosmic Perspective (2022)", desc: "The night gave me back my wonder / my distance./ I have never felt so soft a glow / my body inextricably spread across / the field of the cosmos.", img: "art/starview.PNG", link: "#" },
         { title: "The Ocean Within (2024)", desc: "Knowing we can only see through our own frames of reference BUT being open to exploring others' oceans.", img: "art/underwater.PNG", link: "#"},
         { title: "Connection (2023)", desc: "Realization: the ultimate nature of human existence is connection", img: "art/connection.PNG", link: "#"},        
+    ],
+    space: [
+        { title: "Cosmic Source Separation", desc: "A highly flexible improvement on GMCA and other source separation techniques, using starlet transformations and GMMs.", img: "space/sources.png", link: "#"},
+        { title: "Microlensing ML Comparisons", desc: "Synthetic microlensing event generation pipeline with a high signal-to-noise ratio; then tested transformers, CNNs, MLPs, and simple least squares curve fitting for characterization.", img: "space/microlensing.png", link: "#" }
+    ],
+    writing: [
+        { title: "Awards Won", desc: "2026: Cooley Fiction Writing (1st), O4U People's Choice Award Lightning Talk (on interdisciplinary engineering) \n 2025: Cooley Fiction Writing (Honorable Mention), Roger M. Jones Poetry (3rd), Caldwell Original Performance (4th)\n 2024: Cooley Fiction Writing (2nd), Roger M Jones (Honorable Mention), Advancing Climate Education (3rd), Science As Art (Honorable Mention) \n2023: Caldwell Written Poetry (1st), Caldwell Original Performance (3rd), Hopwood Weisberg Poem (2nd)", img: "pics/ocean_stars.jpg", link: "#"},
+        { title: "Current Projects", desc: "'Lost Kids' Last Stand: a novel about music, complicated love, and time. About 100 pages into the 3rd draft so far. \n Captured By Sunlight: a graphic novel about family, magic, and running from past mistakes. We're 5 chapters in so far (~ 150 pages). \n ... and many more smaller projects", img: "pics/multimedia.PNG", link: "#" }
     ]
-    // Add space, random, writing...
 };
 
 
@@ -62,29 +64,40 @@ document.querySelectorAll('.interactive-logo').forEach(logo => {
     logo.addEventListener('click', (e) => {
         e.preventDefault();
         
-        // Get the category (e.g., 'code' or 'art') from a data-attribute or class
-        const category = logo.classList.contains('code-pos') ? 'code' : 'art'; 
-        
-        // Populate the modal
-        title.innerText = category.toLowerCase();
-        container.innerHTML = projectData[category].map(p => `
-            <div class="project-card">
-                <div class="image-container">
-                    <img src="${p.img}" alt="${p.title}">
+        const classMap = {
+            'code-pos': 'code',
+            'random-pos': 'random',
+            'space-pos': 'space',
+            'writing-pos': 'writing',
+            'art-pos': 'art'
+        };
+
+        const category = Object.keys(classMap).find(cls => logo.classList.contains(cls));
+        const activeData = classMap[category];
+        if (projectData[activeData]) {
+            title.innerText = activeData.toUpperCase();
+            
+            container.innerHTML = projectData[activeData].map(p => `
+                <div class="project-card">
+                    <div class="image-container">
+                        <img src="${p.img}" alt="${p.title}">
+                    </div>
+                    <h3>${p.title}</h3>
+                    <p>${p.desc}</p>
+                    <a href="${p.link}" target="_blank">View Project</a>
                 </div>
-                <h3>${p.title}</h3>
-                <p>${p.desc}</p>
-                <a href="${p.link}" target="_blank">View Project</a>
-            </div>
-        `).join('');
+            `).join('');
+
+
+            modal.classList.remove('modal-hidden');
+        }
 
         const containers = container.querySelectorAll('.image-container');
         containers.forEach(c => {
-            // 1. Add Panning
             c.addEventListener('mousemove', handlePan);
             c.addEventListener('mouseleave', resetPan);
 
-            // 2. Add Clicking to Full-Screen
+            // Clicking to Full-Screen
             c.addEventListener('click', (e) => {
                 const imgSrc = c.querySelector('img').src;
                 const lb = document.getElementById('lightbox');
@@ -97,7 +110,7 @@ document.querySelectorAll('.interactive-logo').forEach(logo => {
         document.getElementById('close-lightbox').onclick = () => {
             document.getElementById('lightbox').classList.add('modal-hidden');
         };
-        
+
         modal.classList.remove('modal-hidden');
     });
 });
