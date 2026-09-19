@@ -1,3 +1,6 @@
 [submodule "radio"]
 	path = radio
 	url = https://github.com/star-skelly/radio_site
+[submodule "stemp3"]
+	path = stemp3
+	url = https://github.com/star-skelly/stemp3.git
